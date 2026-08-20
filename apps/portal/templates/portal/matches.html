@@ -1,0 +1,46 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+    <section class="page-intro">
+        <p>Follow every fixture, result and performance across the club.</p>
+        <button class="button">+ Add match</button>
+    </section>
+
+    <section class="panel full">
+        <div class="tabs">
+            <b>All matches</b>
+            <span>Upcoming</span>
+            <span>Results</span>
+            <span>2026 / 27</span>
+        </div>
+
+        {% for match in matches_list %}
+            <a class="match-card" href="{% url 'match-report' match.id %}">
+                <time>
+                    {{ match.date }}
+                    <small>{{ match.competition }}</small>
+                </time>
+
+                <strong>{{ match.home }}</strong>
+
+                <span class="crest">
+                    {{ match.home|slice:':1' }}
+                </span>
+
+                <b class="score">{{ match.score }}</b>
+
+                <span class="crest dark">
+                    {{ match.away|slice:':1' }}
+                </span>
+
+                <strong>{{ match.away }}</strong>
+
+                <span class="status {{ match.status|lower }}">
+                    {{ match.status }}
+                </span>
+            </a>
+        {% endfor %}
+    </section>
+
+{% endblock %}

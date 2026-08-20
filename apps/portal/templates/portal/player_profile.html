@@ -1,0 +1,91 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+    <section class="profile-hero">
+        <div class="profile-photo">
+            {{ player.number }}
+        </div>
+
+        <div>
+            <p class="eyebrow">AZAM FC · {{ player.position|upper }}</p>
+            <h2>{{ player.name }}</h2>
+            <p>Senior squad · Tanzania</p>
+
+            <div class="profile-meta">
+                <span>Jersey <b>#{{ player.number }}</b></span>
+                <span>Preferred foot <b>Right</b></span>
+                <span>Age <b>26</b></span>
+            </div>
+        </div>
+
+        <a class="button" href="{% url 'reports' %}">
+            Download report
+        </a>
+    </section>
+
+    <section class="stat-grid">
+        <article>
+            <span>Appearances</span>
+            <b>{{ player.apps }}</b>
+            <small>this season</small>
+        </article>
+
+        <article>
+            <span>Goals</span>
+            <b>{{ player.goals }}</b>
+            <small>0.41 per 90</small>
+        </article>
+
+        <article>
+            <span>Assists</span>
+            <b>{{ player.assists }}</b>
+            <small>0.32 per 90</small>
+        </article>
+
+        <article>
+            <span>Minutes played</span>
+            <b>1,742</b>
+            <small>78% of available</small>
+        </article>
+    </section>
+
+    <section class="two-col">
+        <article class="panel">
+            <div class="panel-head">
+                <div>
+                    <p class="eyebrow">SEASON PERFORMANCE</p>
+                    <h3>Goal contributions</h3>
+                </div>
+            </div>
+
+            <div class="bar-chart">
+                <i style="height:42%"></i>
+                <i style="height:65%"></i>
+                <i style="height:48%"></i>
+                <i style="height:84%"></i>
+                <i style="height:58%"></i>
+                <i style="height:96%"></i>
+            </div>
+        </article>
+
+        <article class="panel">
+            <div class="panel-head">
+                <div>
+                    <p class="eyebrow">AVAILABILITY</p>
+                    <h3>Match readiness</h3>
+                </div>
+            </div>
+
+            <div class="readiness">
+                <b>92%</b>
+                <span>Available for selection</span>
+            </div>
+
+            <p class="muted">
+                No active injuries or suspensions.
+            </p>
+        </article>
+    </section>
+
+{% endblock %}

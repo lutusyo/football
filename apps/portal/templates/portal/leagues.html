@@ -1,0 +1,30 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+    <section class="page-intro">
+        <p>Manage the competitions your teams take part in.</p>
+        <button class="button">+ Add competition</button>
+    </section>
+
+    <section class="league-grid">
+        {% for league in leagues %}
+            <article class="league-card">
+                <span class="competition-icon">⌁</span>
+
+                <p class="eyebrow">
+                    {{ league.country }} · {{ league.type }}
+                </p>
+
+                <h3>{{ league.name }}</h3>
+
+                <div>
+                    <b>{{ league.clubs }}</b>
+                    clubs
+                    <a href="{% url 'tables' %}">View table →</a>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+
+{% endblock %}

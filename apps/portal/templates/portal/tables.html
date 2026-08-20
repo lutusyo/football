@@ -1,0 +1,49 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+    <section class="page-intro">
+        <p>NBC Premier League · 2026 / 27</p>
+        <button class="outline-button">⌄ Current season</button>
+    </section>
+
+    <section class="panel full">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Club</th>
+                    <th>PL</th>
+                    <th>W</th>
+                    <th>D</th>
+                    <th>L</th>
+                    <th>GD</th>
+                    <th>PTS</th>
+                    <th>Form</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for team in teams %}
+                    <tr class="{% if forloop.first %}highlight{% endif %}">
+                        <td>{{ forloop.counter }}</td>
+
+                        <td>
+                            <span class="mini-crest">{{ team.logo }}</span>
+                            <b>{{ team.name }}</b>
+                        </td>
+
+                        <td>{{ team.played }}</td>
+                        <td>16</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>+{{ team.points }}</td>
+                        <td><b>{{ team.points }}</b></td>
+                        <td class="form">{{ team.form }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+
+{% endblock %}

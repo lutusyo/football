@@ -1,0 +1,114 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+    <section class="hero">
+        <div>
+            <span class="pill">2026 / 27 SEASON</span>
+            <h2>
+                Every team. Every match.<br>
+                One football home.
+            </h2>
+            <p>Track performances, develop talent, and keep your club moving forward.</p>
+            <a class="button" href="{% url 'matches' %}">
+                View fixtures <span>→</span>
+            </a>
+        </div>
+
+        <div class="hero-score">
+            <p>NEXT MATCH</p>
+
+            <div class="teams-line">
+                <b>AZ</b>
+                <strong>Azam FC</strong>
+                <em>VS</em>
+                <strong>Simba SC</strong>
+                <b class="dark">S</b>
+            </div>
+
+            <small>Today · 18:00 &nbsp; | &nbsp; Chamazi Complex</small>
+        </div>
+    </section>
+
+    <section class="stat-grid">
+        <article>
+            <span>Matches played</span>
+            <b>24</b>
+            <small class="up">↑ 3 this month</small>
+        </article>
+
+        <article>
+            <span>Win rate</span>
+            <b>67%</b>
+            <small class="up">↑ 8% vs last season</small>
+        </article>
+
+        <article>
+            <span>Goals scored</span>
+            <b>48</b>
+            <small>2.0 per match</small>
+        </article>
+
+        <article>
+            <span>League position</span>
+            <b>1<sup>st</sup></b>
+            <small class="up">↑ 1 place</small>
+        </article>
+    </section>
+
+    <section class="two-col">
+        <article class="panel">
+            <div class="panel-head">
+                <div>
+                    <p class="eyebrow">FIXTURES</p>
+                    <h3>Upcoming matches</h3>
+                </div>
+
+                <a href="{% url 'matches' %}">See all</a>
+            </div>
+
+            {% for match in matches_list|slice:':2' %}
+                <a class="fixture" href="{% url 'match-report' match.id %}">
+                    <div>
+                        <small>{{ match.competition }}</small>
+                        <b>
+                            {{ match.home }}
+                            <span class="vs">{{ match.score }}</span>
+                            {{ match.away }}
+                        </b>
+                    </div>
+
+                    <time>{{ match.date }}</time>
+                </a>
+            {% endfor %}
+        </article>
+
+        <article class="panel">
+            <div class="panel-head">
+                <div>
+                    <p class="eyebrow">SQUAD</p>
+                    <h3>Top contributors</h3>
+                </div>
+
+                <a href="{% url 'teams' %}">Full squad</a>
+            </div>
+
+            {% for player in players %}
+                <a class="player-row" href="{% url 'player-profile' player.id %}">
+                    <span class="player-number">{{ player.number }}</span>
+
+                    <span>
+                        <b>{{ player.name }}</b>
+                        <small>{{ player.position }}</small>
+                    </span>
+
+                    <span class="player-stat">
+                        <b>{{ player.goals }}</b>
+                        <small>goals</small>
+                    </span>
+                </a>
+            {% endfor %}
+        </article>
+    </section>
+
+{% endblock %}

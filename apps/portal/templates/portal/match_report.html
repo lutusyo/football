@@ -1,0 +1,79 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+    <section class="report-score">
+        <p>{{ match.competition }} · {{ match.date }}</p>
+
+        <div>
+            <span>{{ match.home }}</span>
+            <b>{{ match.score }}</b>
+            <span>{{ match.away }}</span>
+        </div>
+
+        <small>Chamazi Complex · Full time</small>
+    </section>
+
+    <section class="stat-grid">
+        <article>
+            <span>Possession</span>
+            <b>54%</b>
+            <small>Azam FC</small>
+        </article>
+
+        <article>
+            <span>Shots on target</span>
+            <b>7 — 3</b>
+            <small>Azam FC · Opponent</small>
+        </article>
+
+        <article>
+            <span>Expected goals</span>
+            <b>1.86</b>
+            <small>0.72 opponent</small>
+        </article>
+
+        <article>
+            <span>Attendance</span>
+            <b>8,420</b>
+            <small>Chamazi Complex</small>
+        </article>
+    </section>
+
+    <section class="two-col">
+        <article class="panel">
+            <div class="panel-head">
+                <div>
+                    <p class="eyebrow">MATCH STORY</p>
+                    <h3>Key events</h3>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <p><b>12'</b> Goal · Prince Dube</p>
+                <p><b>46'</b> Second half begins</p>
+                <p><b>68'</b> Goal · Feisal Salum</p>
+                <p><b>90+3'</b> Full time</p>
+            </div>
+        </article>
+
+        <article class="panel">
+            <div class="panel-head">
+                <div>
+                    <p class="eyebrow">PLAYER OF THE MATCH</p>
+                    <h3>Feisal Salum</h3>
+                </div>
+            </div>
+
+            <div class="motm">
+                <span class="player-number">10</span>
+
+                <p>
+                    <b>1 Goal · 1 Assist</b><br>
+                    <small>8.8 match rating</small>
+                </p>
+            </div>
+        </article>
+    </section>
+
+{% endblock %}

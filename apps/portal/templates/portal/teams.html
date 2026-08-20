@@ -1,0 +1,60 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+    <section class="page-intro">
+        <p>Teams, squads and player availability across your organization.</p>
+        <button class="button">+ Add team</button>
+    </section>
+
+    <section class="team-grid">
+        {% for team in teams %}
+            <article class="team-card">
+                <div class="team-logo">{{ team.logo }}</div>
+
+                <p class="eyebrow">{{ team.short }} · SENIOR</p>
+
+                <h3>{{ team.name }}</h3>
+
+                <div class="team-data">
+                    <span>
+                        <b>{{ team.played }}</b>
+                        <small>Matches</small>
+                    </span>
+
+                    <span>
+                        <b>{{ team.points }}</b>
+                        <small>Points</small>
+                    </span>
+
+                    <span class="form">{{ team.form }}</span>
+                </div>
+
+                <a href="{% url 'tables' %}">View team →</a>
+            </article>
+        {% endfor %}
+    </section>
+
+    <section class="panel full">
+        <div class="panel-head">
+            <div>
+                <p class="eyebrow">SENIOR SQUAD</p>
+                <h3>Players</h3>
+            </div>
+
+            <a href="{% url 'reports' %}">Player report</a>
+        </div>
+
+        {% for player in players %}
+            <a class="squad-row" href="{% url 'player-profile' player.id %}">
+                <span class="player-number">{{ player.number }}</span>
+                <b>{{ player.name }}</b>
+                <span>{{ player.position }}</span>
+                <span>{{ player.apps }} appearances</span>
+                <b>{{ player.goals }} goals</b>
+                <span>→</span>
+            </a>
+        {% endfor %}
+    </section>
+
+{% endblock %}

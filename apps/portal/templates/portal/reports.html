@@ -1,0 +1,36 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+    <section class="page-intro">
+        <p>Generate clear insights for sporting, technical and leadership teams.</p>
+        <button class="button">+ Create report</button>
+    </section>
+
+    <section class="report-grid">
+        <article>
+            <span class="report-icon">◫</span>
+            <p class="eyebrow">MATCH ANALYSIS</p>
+            <h3>Post-match report</h3>
+            <p>Performance, events, line-ups and player ratings.</p>
+            <a href="{% url 'match-report' 2 %}">Open report →</a>
+        </article>
+
+        <article>
+            <span class="report-icon">◔</span>
+            <p class="eyebrow">SQUAD INSIGHT</p>
+            <h3>Player statistics</h3>
+            <p>Season contributions, availability and development.</p>
+            <a href="{% url 'player-profile' 1 %}">Open report →</a>
+        </article>
+
+        <article>
+            <span class="report-icon">▥</span>
+            <p class="eyebrow">COMPETITION</p>
+            <h3>League performance</h3>
+            <p>Position, form and results against every opponent.</p>
+            <a href="{% url 'tables' %}">Open report →</a>
+        </article>
+    </section>
+
+{% endblock %}

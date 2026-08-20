@@ -1,0 +1,86 @@
+{% extends 'portal/base.html' %}
+
+{% block content %}
+
+    <section class="organization-hero">
+        <span class="org-logo">AZ</span>
+
+        <div>
+            <p class="eyebrow">ORGANIZATION PROFILE</p>
+            <h2>{{ organization.name }}</h2>
+            <p>{{ organization.city }}, Tanzania · Founded {{ organization.founded }}</p>
+        </div>
+
+        <button class="outline-button">Edit organization</button>
+    </section>
+
+    <section class="two-col">
+        <article class="panel">
+            <div class="panel-head">
+                <div>
+                    <p class="eyebrow">CLUB DETAILS</p>
+                    <h3>Identity</h3>
+                </div>
+            </div>
+
+            <dl>
+                <dt>Short name</dt>
+                <dd>{{ organization.short_name }}</dd>
+
+                <dt>Primary colour</dt>
+                <dd>
+                    <span class="color-swatch"></span>
+                    Club blue
+                </dd>
+
+                <dt>Website</dt>
+                <dd>www.azamfc.co.tz</dd>
+
+                <dt>Contact</dt>
+                <dd>info@azamfc.co.tz</dd>
+            </dl>
+        </article>
+
+        <article class="panel">
+            <div class="panel-head">
+                <div>
+                    <p class="eyebrow">ORGANIZATION OVERVIEW</p>
+                    <h3>At a glance</h3>
+                </div>
+            </div>
+
+            <div class="overview-stats">
+                <span>
+                    <b>4</b>
+                    <small>Teams</small>
+                </span>
+
+                <span>
+                    <b>76</b>
+                    <small>Players</small>
+                </span>
+
+                <span>
+                    <b>3</b>
+                    <small>Competitions</small>
+                </span>
+            </div>
+        </article>
+    </section>
+
+    <section class="panel full">
+        <div class="panel-head">
+            <div>
+                <p class="eyebrow">THEME SETTINGS</p>
+                <h3>Brand colour</h3>
+            </div>
+        </div>
+
+        <p class="muted">
+            The portal uses a central blue colour token, ready to be replaced
+            by each organization’s preferred brand colour when organization
+            settings are connected to the database.
+        </p>
+    </section>
+
+{% endblock %}
