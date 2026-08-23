@@ -25,4 +25,4 @@ class Team(ActiveModel):
         ]
 
     def __str__(self):
-        return f"{self.organization.short_name} - {self.name}"
+        return f"{self.organization.short_name} - {self.name} - {self.category} - {self.age_group}"
