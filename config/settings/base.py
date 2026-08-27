@@ -63,6 +63,11 @@ INSTALLED_APPS = [
     'apps.reference',
     'apps.matches',
     'apps.portal',
+    "apps.videos",
+    "apps.api",
+
+    # Third part
+    "rest_framework",
 ]
 
 MIDDLEWARE = [

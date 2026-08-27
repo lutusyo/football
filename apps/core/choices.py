@@ -74,3 +74,9 @@ class MatchPeriodChoices(models.TextChoices):
     EXTRA_FIRST = "ET1", "Extra Time First Half"
     EXTRA_SECOND = "ET2", "Extra Time Second Half"
     PENALTIES = "PEN", "Penalty Shootout"
+
+class EventSourceChoices(models.TextChoices):
+    MANUAL = "MANUAL", "Manual"
+    COMPUTER_VISION = "CV", "Computer Vision"
+    GPS = "GPS", "GPS"
+    IMPORTED = "IMPORTED", "Imported"

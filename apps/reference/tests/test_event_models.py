@@ -3,7 +3,7 @@ from apps.reference.models.event_type import EventType
 from apps.reference.models.event_category import EventCategory
 from apps.reference.models.event_outcome import EventOutcome
 from apps.reference.models.body_part  import BodyPart
-
+from apps.reference.models.event_source import EventSource
 
 class EventModelTests(TestCase):
 
@@ -23,3 +23,7 @@ class EventModelTests(TestCase):
     def test_body_part(self):
         body_part = BodyPart.objects.create(name="Right Foot", code="RIGHT_FOOT")
         self.assertEqual(str(body_part), "Right Foot")
+
+    def test_event_source(self):
+        source = EventSource.objects.create(name="Computer Vision", code="CV", source_type="CV",)
+        self.assertEqual(str(source), "Computer Vision")
