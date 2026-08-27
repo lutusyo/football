@@ -173,8 +173,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = "/football/static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
+STATIC_URL = "/static_football/"
+STATIC_ROOT = "/home/azamxwhg/public_html/static_football/"
 
 
 STORAGES = {
