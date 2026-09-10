@@ -1,3 +1,5 @@
+# apps/api/views/teams.py
+
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.viewsets import ReadOnlyModelViewSet
 from apps.football.models import Team

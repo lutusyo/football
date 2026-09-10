@@ -16,26 +16,10 @@ class CityAdmin(admin.ModelAdmin):
 
 @admin.register(Organization)
 class OrganizationAdmin(admin.ModelAdmin):
-    list_display = (
-    "name",
-    "short_name",
-    "country",
-    "city",
-    "is_active",
-    )
-
-    search_fields = (
-        "name",
-        "short_name",
-    )
-
-    list_filter = (
-        "country",
-        "is_active",
-    )
+    list_display = ("name", "short_name", "country", "city", "is_active",)
+    search_fields = ("name","short_name",)
+    list_filter = ("country","is_active",)
 
     prepopulated_fields = {
-        "slug": (
-            "name",
-        )
+        "slug": ( "name", )
     }
