@@ -1,10 +1,6 @@
 from django.db import models
-
 from apps.core.base_models import ActiveModel
-from apps.core.choices import (
-    RegistrationStatusChoices,
-    RegistrationTypeChoices,
-)
+from apps.core.choices import ( RegistrationStatusChoices, RegistrationTypeChoices,)
 from apps.organizations.models import Organization
 from .player_profile import PlayerProfile
 from .season import Season

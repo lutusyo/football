@@ -1,5 +1,4 @@
 from django.db import models
-
 from apps.core.base_models import ActiveModel
 from apps.core.choices import FootChoices
 from .person import Person
