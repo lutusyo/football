@@ -1,3 +1,5 @@
+# apps/matches/models/match_event_participation.py
+
 from django.db import models
 from apps.core.base_models import ActiveModel
 from apps.matches.models.match_appearance import MatchAppearance

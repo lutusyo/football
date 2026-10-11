@@ -1,3 +1,5 @@
+# apps/matches/models/match_event.py
+
 from django.db import models
 from apps.core.base_models import ActiveModel
 

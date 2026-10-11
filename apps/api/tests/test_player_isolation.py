@@ -32,34 +32,26 @@ class PlayerIsolationTests(APITestCase):
             category=TeamCategoryChoices.YOUTH, age_group=AgeGroupChoices.U17,
         )
 
-        self.season = Season.objects.create(
-            name="2026/27",
-            start_date=date(2026, 7, 1),
-            end_date=date(2027, 6, 30),
-        )
+        self.season = Season.objects.create(name="2026/27", start_date=date(2026, 7, 1), end_date=date(2027, 6, 30),)
 
         person_a = Person.objects.create(
             first_name="Player", last_name="A",
             gender=GenderChoices.MALE,
-            date_of_birth=date(2009, 1, 1),
-            nationality=country,
+            date_of_birth=date(2009, 1, 1), nationality=country,
         )
 
         person_b = Person.objects.create(
             first_name="Player", last_name="B",
             gender=GenderChoices.MALE,
-            date_of_birth=date(2009, 2, 1),
-            nationality=country,
+            date_of_birth=date(2009, 2, 1), nationality=country,
         )
 
         player_a = PlayerProfile.objects.create(person=person_a,preferred_foot=FootChoices.RIGHT,)
         player_b = PlayerProfile.objects.create(person=person_b, preferred_foot=FootChoices.RIGHT,)
 
-        PlayerRegistration.objects.create(
-            player=player_a,
+        PlayerRegistration.objects.create(player=player_a,
             organization=self.club_a,
-            team=self.team_a,
-            season=self.season,
+            team=self.team_a, season=self.season,
             start_date=date(2026, 7, 1),
             registration_type=RegistrationTypeChoices.PERMANENT,
             status=RegistrationStatusChoices.ACTIVE,
@@ -77,10 +69,7 @@ class PlayerIsolationTests(APITestCase):
             is_current=True,
         )
 
-        self.user = User.objects.create_user(
-            email="analyst@cluba.com",
-            password="TestPass123",
-        )
+        self.user = User.objects.create_user(email="analyst@cluba.com", password="TestPass123",)
 
         Membership.objects.create(
             user=self.user,
@@ -96,8 +85,6 @@ class PlayerIsolationTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.data), 1)
 
-        player = PlayerProfile.objects.get(
-            registrations__organization=self.club_a
-        )
+        player = PlayerProfile.objects.get(registrations__organization=self.club_a)
 
         self.assertEqual(response.data[0]["id"], str(player.id))

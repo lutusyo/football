@@ -1,5 +1,5 @@
 from .season import Season
-from .competition import Competition
+from .competition import Competition, CompetitionSeason,CompetitionTypeChoices,TeamCompetitionEntry
 from .venue import Venue
 from .team import Team
 from .person import Person

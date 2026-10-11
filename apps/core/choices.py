@@ -63,10 +63,17 @@ class MatchStatusChoices(models.TextChoices):
     POSTPONED = "POSTPONED", "Postponed"
     CANCELLED = "CANCELLED", "Cancelled"
 
+class NotCalledReasonChoices(models.TextChoices):
+    INJURY = "INJURY", "Injury"
+    LONG_TERM_INJURY = "LONG_TERM_INJURY", "Long-Term Injury"
+    RED_CARD = "RED_CARD", "Red Card"
+    OTHER = "OTHER", "Other"
+
 class SquadSelectionChoices(models.TextChoices):
-    STARTING = "STARTING", "Starting XI"
-    SUBSTITUTE = "SUBSTITUTE", "Substitute"
-    RESERVE = "RESERVE", "Reserve"
+    STARTING = "STARTING", "First Eleven"
+    BENCH_PLAYED = "BENCH_PLAYED", "Bench + Played"
+    BENCH_DID_NOT_PLAY = "BENCH_DID_NOT_PLAY", "Bench + Did Not Play"
+    NOT_CALLED = "NOT_CALLED", "Not Called"
 
 class MatchPeriodChoices(models.TextChoices):
     FIRST_HALF = "1H", "First Half"

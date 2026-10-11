@@ -52,15 +52,19 @@ INSTALLED_APPS = [
     # local
     'apps.core', 'apps.organizations',
     'apps.football', 'apps.reference',
-    'apps.matches', 'apps.portal',
+    'apps.matches', 
     "apps.videos", "apps.api", "apps.accounts",
 
     # Third part
     "rest_framework",
     "rest_framework_simplejwt",
+    "corsheaders",
+    "drf_spectacular",
 ]
 
 MIDDLEWARE = [
+
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -183,5 +187,13 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_PERMISSION_CLASSES":(
         "rest_framework.permissions.IsAuthenticated",
-    )
+    ),
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+
+SPECTACULAR_SETTINGS = {
+    "TITLE": "Football Platform API",
+    "DESCRIPTION": "API for football clubs, players, teams, matches and performance data.",
+    "VERSION": "1.0.0",
 }
