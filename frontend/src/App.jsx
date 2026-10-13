@@ -5,6 +5,8 @@ import ResourcePage from "./pages/ResourcePage";
 import { getMe, logout } from "./api/auth";
 import "./style.css";
 
+import DashboardHome from "./pages/DashboardHome";
+
 function Dashboard({ user, onLogout }) {
   const links = [
     ["Dashboard", "/"],
@@ -24,34 +26,21 @@ function Dashboard({ user, onLogout }) {
         <button className="logout" onClick={onLogout}>Logout</button>
       </aside>
       <main className="content">
+        
         <header className="topbar">
           <span>Football Management</span>
           <span>{user.first_name || user.email}</span>
         </header>
+
         <Routes>
-          <Route path="/" element={
-            <section>
-              <h1>Dashboard</h1>
-              <p>Welcome to your football management platform.</p>
-              <div className="cards">
-                <article><h3>Organizations</h3><p>{user.organizations.length}</p></article>
-                <article><h3>Teams</h3><p>View your teams</p></article>
-                <article><h3>Players</h3><p>Manage player data</p></article>
-                <article><h3>Matches</h3><p>Review match information</p></article>
-              </div>
-              <h2>My Organizations</h2>
-              {user.organizations.map(org => (
-                <p key={org.id}>{org.name} <span className="role">{org.role}</span></p>
-              ))}
-              {!user.organizations.length && <p>No organization membership found.</p>}
-            </section>
-          } />
+          <Route path="/" element={<DashboardHome user={user} />} />
           <Route path="/organizations" element={<ResourcePage type="organizations" />} />
           <Route path="/teams" element={<ResourcePage type="teams" />} />
           <Route path="/players" element={<ResourcePage type="players" />} />
           <Route path="/matches" element={<ResourcePage type="matches" />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
+
       </main>
     </div>
   );
